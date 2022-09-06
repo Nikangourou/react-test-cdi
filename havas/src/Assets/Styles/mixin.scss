@@ -1,0 +1,12 @@
+@mixin mixin-portrait {
+    @media (orientation: portrait) {
+      @content;
+    }
+  }
+  
+  @mixin mixin-landscape {
+    @media (orientation: landscape) {
+      @content;
+    }
+  }
+  
