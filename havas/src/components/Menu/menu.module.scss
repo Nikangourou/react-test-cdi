@@ -5,7 +5,6 @@ $lineThickness: 4px;
 $transitionSpeed: .25s;
 $transitionEasing: ease-in-out;
 
-
 .menuToggle {
   position: fixed;
   z-index: 300;
@@ -15,7 +14,7 @@ $transitionEasing: ease-in-out;
   border: none;
   width: $buttonWidth;
   height: $buttonHeight;
-
+  cursor: pointer;
   background: transparent;
   border-top: $lineThickness solid;
   border-bottom: $lineThickness solid;
@@ -67,28 +66,46 @@ button.active {
 
   .menu {
     position: relative;
-    width: 500px;
+    width: 800px;
     background-color: white;
-    left: -500px;
+    left: -800px;
     top: 0;
     height: 100vh;
+    animation: circleRemove 1s ease-in;
+
     transition-duration: .5s;
+    clip-path: polygon(0% 0%, 54% 0, 54% 8%, 54% 16%, 54% 23%, 54% 29%, 54% 36%, 54% 45%, 54% 54%, 54% 60%, 54% 68%, 54% 73%, 54% 78%, 54% 84%, 54% 90%, 54% 93%, 54% 97%, 54% 100%, 0 100%);
   }
 
   &.active {
     background-color: rgba(0, 0, 0, 0.8);
 
     .menu {
-      transform: translateX(500px);
-      animation: circle 5s ease-in;
-
-      transition: clip-path 1s;
+      transform: translateX(700px);
+      animation: circle 1s ease-in;
     }
   } 
 }
 
+// 
+
 @keyframes circle {
-  // 0% { clip-path: polygon(0 0, 72% 0, 52% 9%, 39% 21%, 30% 35%, 26% 51%, 30% 67%, 38% 80%, 53% 93%, 71% 100%, 0 100%); }
-  0% { clip-path: ellipse(100% 70vh at 100% 50%); }
-  80% { clip-path: ellipse(100% 70vh at 0% 50%); }
+  0% { clip-path: polygon(0% 0%, 54% 0, 43% 6%, 35% 12%, 29% 17%, 26% 21%, 21% 27%, 18% 33%, 16% 38%, 15% 43%, 15% 51%, 16% 61%, 17% 69%, 19% 76%, 22% 81%, 30% 89%, 39% 95%, 54% 100%, 0 100%); }
+  80% { clip-path: polygon(0% 0%, 54% 0, 63% 6%, 70% 12%, 75% 18%, 79% 23%, 82% 29%, 85% 36%, 87% 42%, 88% 50%, 87% 55%, 86% 62%, 84% 69%, 81% 76%, 78% 83%, 73% 89%, 66% 95%, 61% 100%, 0 100%) }
+  100% { clip-path: polygon(0% 0%, 54% 0, 54% 8%, 54% 16%, 54% 23%, 54% 29%, 54% 36%, 54% 45%, 54% 54%, 54% 60%, 54% 68%, 54% 73%, 54% 78%, 54% 84%, 54% 90%, 54% 93%, 54% 97%, 54% 100%, 0 100%) }
 }
+
+@keyframes circleRemove {
+  0% { clip-path: polygon(0% 0%, 54% 0, 43% 6%, 35% 12%, 29% 17%, 26% 21%, 21% 27%, 18% 33%, 16% 38%, 15% 43%, 15% 51%, 16% 61%, 17% 69%, 19% 76%, 22% 81%, 30% 89%, 39% 95%, 54% 100%, 0 100%); }
+  100% { clip-path: polygon(0% 0%, 54% 0, 54% 8%, 54% 16%, 54% 23%, 54% 29%, 54% 36%, 54% 45%, 54% 54%, 54% 60%, 54% 68%, 54% 73%, 54% 78%, 54% 84%, 54% 90%, 54% 93%, 54% 97%, 54% 100%, 0 100%) }
+}
+
+// @keyframes circle {
+//    0% { clip-path: polygon(0 0, 72% 0, 52% 9%, 39% 21%, 30% 35%, 26% 51%, 30% 67%, 38% 80%, 54% 93%, 71% 100%, 0 100%); }
+//    0% { clip-path: ellipse(100% 70vh at 100% 50%); }
+//    80% { clip-path: ellipse(100% 70vh at 0% 50%); }
+// }
+
+// clip-path: polygon(0% 0%, 54% 0, 43% 6%, 35% 12%, 29% 17%, 26% 21%, 21% 27%, 18% 33%, 16% 38%, 15% 43%, 15% 51%, 16% 61%, 17% 69%, 19% 76%, 22% 81%, 30% 89%, 39% 95%, 51% 100%, 0 100%);
+// clip-path: polygon(0% 0%, 54% 0, 54% 8%, 54% 16%, 54% 23%, 54% 29%, 54% 36%, 54% 45%, 54% 54%, 54% 60%, 54% 68%, 54% 73%, 55% 78%, 54% 84%, 54% 90%, 54% 93%, 55% 97%, 54% 100%, 0 100%);
+// clip-path: polygon(0% 0%, 54% 0, 63% 6%, 70% 12%, 54% 18%, 79% 23%, 82% 29%, 85% 36%, 87% 42%, 88% 50%, 87% 55%, 86% 62%, 84% 69%, 81% 76%, 78% 83%, 73% 89%, 66% 95%, 61% 100%, 0 100%);
