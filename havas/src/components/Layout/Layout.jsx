@@ -1,12 +1,10 @@
-import Header from "../Header/Header"
+import Header from "../Header/Header";
 
-const Layout = () => (
-    <Header>
+const Layout = ({ children }) => (
+  <>
+    <Header></Header>
+    {children}
+  </>
+);
 
-    </Header>
-)
-    
-
-
-
-export default Layout
+export default Layout;

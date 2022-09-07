@@ -1,13 +1,13 @@
-import MenuStyles from './menu.module.scss'
+import MenuStyles from "./menu.module.scss";
 
-const Menu = () => {
+const Menu = ({menuOpen}) => {
+  return (
+    <div className={`${MenuStyles.container} ${menuOpen ? MenuStyles.active : ''}`}>
+      <div className={MenuStyles.menu}>
+        
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div className={MenuStyles.menuContainer}>
-            
-        </div>
-    )
-
-}
-
-export default Menu
+export default Menu;
