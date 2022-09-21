@@ -1,0 +1,149 @@
+@import "../../../Assets/Styles/color.scss";
+@import "../../../Assets/Styles/mixin.scss";
+
+section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        display: grid;
+        grid-template-columns: 450px 1fr;
+        grid-template-rows: repeat(3 1fr);
+        width: 80%;
+        max-width: 1300px;
+        margin: auto;
+        grid-column-gap: 150px;
+        padding-bottom: 100px;
+
+        @include xl {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+
+
+        .cell {
+            display: flex;
+            opacity: 0;
+
+            .description {
+
+                .title {
+                    font-style: oblique;
+                    font-weight: bold;
+                    font-size: 28px;
+                    width: 450px;
+                }
+
+                .date {
+                    color: $purple;
+                    font-size: 14px;
+                    position: relative;
+                }
+
+                .content {
+                    width: 250px;
+                    font-weight: bold;
+                    font-style: oblique;
+                    font-size: 18px;
+                    margin: 0 33px;
+                }
+            }
+
+            .image {
+                overflow: hidden;
+
+                img {
+                    width: 200px;
+                    height: 200px;
+                    object-fit: cover;
+                    transition: .5s;
+
+                    &:hover {
+                        scale: 1.1;
+                        cursor: url("../../../Assets/Images/News/cursor.png"), pointer;
+                    }
+                }
+            }
+
+
+
+            &:nth-child(1) {
+                grid-row: 1 / 4;
+                flex-direction: column;
+                justify-content: space-between;
+
+                @include xl {
+                    margin: 30px auto;
+                }
+
+                @include xl {
+                    grid-row: 1 / 2;
+                }
+
+                .date {
+                    margin-top: 0;
+                }
+
+                .image img {
+                    width: 450px;
+                    height: 450px;
+                }
+            }
+
+            &:nth-child(2),
+            &:nth-child(4) {
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+
+                @include xl {
+                    grid-column: 1 / 2;
+                }
+
+                .date {
+                    margin-top: 30px;
+                    padding-left: 33px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 30px;
+                        height: 1px;
+                        background-color: $purple;
+                        left: 0;
+                        bottom: 2px;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                grid-column: 2 / 3;
+                justify-content: flex-end;
+
+                @include xl {
+                    grid-column: 1 / 2;
+                }
+
+                .description {
+                    text-align: end;
+
+                    .date {
+                        padding-right: 33px;
+                        margin-top: 30px;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 30px;
+                            height: 1px;
+                            background-color: $purple;
+                            right: 0;
+                            bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

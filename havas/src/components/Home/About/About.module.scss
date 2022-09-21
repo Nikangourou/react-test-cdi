@@ -1,0 +1,254 @@
+@import "../../../Assets/Styles/color.scss";
+@import "../../../Assets/Styles/mixin.scss";
+
+#about {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 1;
+        margin-bottom: 200px;
+        background-color: black;
+        transform: translateX(-100%);
+        transition: .5s;
+
+        @include xl {
+            aspect-ratio: initial;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+
+        @include lg {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(5 1fr);
+        }
+
+        &.inView {
+            transform: translateX(0);
+
+            &>div:nth-child(2) {
+                animation: .2s linear .8s reveal forwards;
+            }
+
+            &>div:nth-child(3) {
+                animation: .2s linear 1.1s reveal forwards;
+            }
+
+            &>div:nth-child(4) {
+                animation: .2s linear 1.4s reveal forwards;
+            }
+
+            &>div:nth-child(5) {
+                animation: .2s linear 1.7s reveal forwards;
+            }
+        }
+
+        &>div {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            border-top: 1px solid black;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+
+            .circle {
+                width: 60%;
+                height: 60%;
+                border-radius: 50%;
+                background-color: $purple;
+                position: absolute;
+                right: -20%;
+                scale: 0;
+                transition: scale .5s;
+                transform-origin: right;
+                top: 9%;
+
+                &.circle2 {
+                    top: -12%;
+                    width: 100%;
+                    height: 100%;
+                    right: -40%;
+                }
+
+                &.circle3 {
+                    top: -50%;
+                    right: -27%;
+                    width: 120%;
+                    height: 120%;
+                }
+
+                &.circle4 {
+                    top: -50%;
+                    right: -27%;
+                    width: 120%;
+                    height: 120%;
+                }
+            }
+
+            &:hover {
+                color: white;
+                box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.1);
+
+                .circle {
+                    scale: 1;
+                }
+            }
+
+            p {
+                z-index: 1;
+                font-size: 60px;
+                font-weight: bold;
+                font-style: oblique;
+                width: 80%;
+                letter-spacing: 2px;
+                margin-bottom: 0;
+                margin-top: 0;
+
+                @include xxxl {
+                    font-size: 40px;
+                }
+
+                @include xxl {
+                    font-size: 30px;
+                }
+
+                &.arrow {
+                    font-weight: normal;
+                    font-style: normal;
+                }
+            }
+        }
+
+        &>div:nth-child(1) {
+            background-color: black;
+            color: white;
+            grid-row: 1/3;
+            text-transform: none;
+
+            @include xl {
+                grid-column: 1/3;
+                grid-row: 1/2;
+            }
+
+            @include lg {
+                grid-column: 1/2;
+            }
+
+
+            &>div {
+                max-width: 700px;
+
+                h1 {
+                    font-size: 100px;
+                    margin-bottom: 30px;
+                    margin-top: 0;
+                    font-style: oblique;
+
+                    span {
+                        font-size: 250px;
+                        display: block;
+                    }
+
+                    @include xxl {
+                        font-size: 60px;
+
+                        span {
+                            font-size: 150px;
+                        }
+                    }
+                }
+
+                p {
+                    font-size: 45px;
+                    padding-bottom: 60px;
+                    width: 100%;
+
+                    @include xxl {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+
+        }
+
+        &>div:nth-child(2) {
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            opacity: 0;
+
+            @include xl {
+                aspect-ratio: 1 / 1;
+                border-right: 10px solid #03bd80;
+            }
+
+            &:hover {
+                background-color: #03bd80;
+            }
+        }
+
+        &>div:nth-child(3) {
+            border-right: 1px solid black;
+            opacity: 0;
+
+            @include xl {
+                aspect-ratio: 1 / 1;
+                border-left: 1px solid black;
+            }
+
+            &:hover {
+                background-color: #f3251c;
+            }
+        }
+
+        &>div:nth-child(4) {
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            opacity: 0;
+
+            @include xl {
+                aspect-ratio: 1 / 1;
+            }
+
+            &:hover {
+                background-color: #ff7fc7;
+            }
+        }
+
+        &>div:nth-child(5) {
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            opacity: 0;
+
+            @include xl {
+                aspect-ratio: 1 / 1;
+                border-left: 1px solid black;
+            }
+
+            &:hover {
+                background-color: #ecca00;
+            }
+        }
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
