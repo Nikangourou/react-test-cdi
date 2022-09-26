@@ -4,7 +4,6 @@ import AboutStyles from "./About.module.scss";
 import { useInView } from "react-intersection-observer";
 
 const About = () => {
-
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
 
   const cell1 = useRef(null);
@@ -20,9 +19,9 @@ const About = () => {
   });
 
   const handleMouseMove = (event, cell) => {
-
-    let offsetTop = cell.current.getBoundingClientRect().y
-    let offsetLeft = cell.current.getBoundingClientRect().x
+    let infos = cell.current.getBoundingClientRect();
+    let offsetTop = infos.y;
+    let offsetLeft = infos.x;
 
     setTranslate({
       x: event.clientX - offsetLeft,
@@ -33,7 +32,9 @@ const About = () => {
   return (
     <section id={AboutStyles.about} ref={sectionRef}>
       <div
-        className={`${AboutStyles.container} ${inView && AboutStyles.inView}`}
+        className={`${AboutStyles.container} ${
+          inView && AboutStyles.inView
+        } testclass`}
       >
         <div>
           <div>
@@ -47,6 +48,7 @@ const About = () => {
           </div>
         </div>
         <div ref={cell1} onMouseMove={(event) => handleMouseMove(event, cell1)}>
+          Home
           <p className={AboutStyles.test}>À propos de GVA</p>
           <p className={AboutStyles.arrow}>&rarr;</p>
           <div

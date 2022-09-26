@@ -36,7 +36,7 @@ const News = () => {
   });
 
   return (
-    <section id="news">
+    <section id="news" className={NewsStyles.sectionNews}>
       <div className={NewsStyles.container}>
         <div
           ref={ref}
@@ -95,6 +95,9 @@ const News = () => {
           <div className={NewsStyles.image}>
             <img src={img1}></img>
           </div>
+        </div>
+        <div className={NewsStyles.containerBtn}>
+          <button>+</button>
         </div>
       </div>
     </section>

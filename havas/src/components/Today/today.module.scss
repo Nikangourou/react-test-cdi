@@ -1,0 +1,114 @@
+@import "../../Assets/Styles/color.scss";
+@import "../../Assets/Styles/mixin.scss";
+
+.content {
+    position: relative;
+    cursor: none;
+
+    .background {
+        background-color: $purple;
+        color: white;
+        padding: 60px 15%;
+        // position: relative;
+    }
+
+    .calcque {
+        color: $green;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    #cursor {
+        position: absolute;
+        padding: 60px 15%;
+        top: 0;
+        left: 0;
+        right: 0;
+        // width: 140px;
+        // height: 140px;
+        // border-radius: 50%;
+        // top: var(--y, 0);
+        // left: var(--x, 0);
+        // transform: translate(-50%, -50%);
+        // mix-blend-mode: difference;
+
+        background-color: white;
+
+        transition-property: scale;
+        transition-duration: .3s;
+        transform-origin: top left;
+        clip-path: circle(5% at var(--x) var(--y));
+        animation: .3s down forwards;
+
+        &.cursor__hover {
+            animation: .3s scale forwards;
+        }
+    }
+
+    .content__title {
+        font-size: 60px;
+        font-style: oblique;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 90%;
+        margin: 100px auto;
+        grid-gap: 100px 50px;
+
+        .grid__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            margin: auto;
+
+            .item___img {
+                width: 80px;
+            }
+
+            .item___title {
+                font-size: 50px;
+                font-style: oblique;
+                margin: 0;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .item__subtitle {
+                font-size: 22px;
+                font-style: oblique;
+                margin: 0;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@keyframes scale {
+    0% {
+        clip-path: circle(5% at var(--x) var(--y));
+    }
+
+    100% {
+        clip-path: circle(10% at var(--x) var(--y));
+    }
+
+}
+
+@keyframes down {
+    0% {
+        clip-path: circle(10% at var(--x) var(--y));
+    }
+
+    100% {
+        clip-path: circle(5% at var(--x) var(--y));
+    }
+
+}
